@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../queue_and_stack')
-from dll_queue import Queue
 from dll_stack import Stack
+from dll_queue import Queue
 
 
 class BinarySearchTree:
@@ -57,20 +57,20 @@ class BinarySearchTree:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        if self.left:
-            self.left.in_order_print(self.left)
+        if node.left:
+            node.left.in_order_print(node.left)
 
-        print(self.value)
+        print(node.value)
 
-        if self.right:
-            self.right.in_order_print(self.right)
+        if node.right:
+            node.right.in_order_print(node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
 
     def bft_print(self, node):
         bft_queue = Queue()
-        bft_queue.enqueue(self)
+        bft_queue.enqueue(node)
         while bft_queue.storage.length:
             current = bft_queue.dequeue()
             print(current.value)
@@ -85,7 +85,7 @@ class BinarySearchTree:
     def dft_print(self, node):
         dft_stack = Stack()
         dft_visited = {}
-        dft_stack.push(self)
+        dft_stack.push(node)
         while dft_stack.storage.length:
             current = dft_stack.pop()
             print(current.value)
@@ -101,16 +101,16 @@ class BinarySearchTree:
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self, node):
-        print(self.value)
-        if self.left:
-            self.left.pre_order_dft(self)
-        if self.right:
-            self.right.pre_order_dft(self)
+        print(node.value)
+        if node.left:
+            node.left.pre_order_dft(node.left)
+        if node.right:
+            node.right.pre_order_dft(node.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        if self.left:
-            self.left.post_order_dft(self)
-        if self.right:
-            self.right.post_order_dft(self)
-        print(self.value)
+        if node.left:
+            node.left.post_order_dft(node.left)
+        if node.right:
+            node.right.post_order_dft(node.right)
+        print(node.value)
