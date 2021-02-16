@@ -14,6 +14,8 @@ class CacheTests(unittest.TestCase):
         self.cache.set('item2', 'z')
 
         self.assertEqual(self.cache.get('item1'), 'a')
+        self.cache.cache.printAll('Ow')
+        print(self.cache.storage)
         self.assertEqual(self.cache.get('item2'), 'z')
 
     def test_cache_insertion_and_retrieval(self):
